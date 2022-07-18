@@ -1,8 +1,15 @@
 const express = require('express');
-const routes = express.Router();
+const router = express.Router();
 
-routes.get('/',(req, res) => res.render('home.ejs'));
+const PostController = require('./controllers/PostController')
 
-routes.get('/post', (req, res) => res.render('single-post.ejs'));
+router.get('/',(req, res) => res.render('home.ejs'));
 
-module.exports = routes;
+router.get('/post', (req, res) => res.render('single-post.ejs'));
+
+router.get('/post/add', (req, res) => res.render('add-post.ejs'));
+
+router.post('/post/add', PostController.store);
+
+module.exports = router;
+

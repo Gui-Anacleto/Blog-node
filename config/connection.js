@@ -1,10 +1,10 @@
-const Sequelize= require('sequelize');
-const sequelize = require('sequelize');
+const Sequelize = require('sequelize');
+
 
 const connection = new Sequelize({
     dialect: 'sqlite',
     storage: 'blognode.sqlite'
-})
+});
 
 module.exports = connection;
 /*

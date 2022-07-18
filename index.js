@@ -15,9 +15,18 @@ app.set('views', 'views');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+const connection = require('./config/connection');
+
 app.use(routes);
 
-app.listen(3333);
+connection.sync().then(result => {
+    //console.log(result);
+    app.listen(3333);
+}).catch(error =>{
+    console.log(error);
+});
+
+
 
 /* CONCEITO MVC 
 MODEL- Modelo/Recurso
